@@ -1,0 +1,28 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+application {
+    mainClass = 'com.google.likert.xrr.Main'
+}
+
+sourceSets.main.java.srcDirs = ['java']
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.google.likert.xrr.Main'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation project(':lib')
+    implementation 'com.google.guava:guava:30.1.1-jre'
+    implementation 'com.opencsv:opencsv:4.6'
+    implementation "com.google.auto.value:auto-value-annotations:1.6"
+    annotationProcessor "com.google.auto.value:auto-value:1.6"
+}
